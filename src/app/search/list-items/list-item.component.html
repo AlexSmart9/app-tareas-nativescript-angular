@@ -1,0 +1,17 @@
+<StackLayout>
+  <Label text="Items" clas="h2 p-10 "></Label>
+
+  <ListView [items]="news.search()" (itemTap)="onTapItem($event)">
+
+    <ng-template let-x="item">
+      <FlexboxLayout flexDirection="row" justifyContent="center" alignItems="center" class="p-15 border-bottom">
+
+        <Image src="res://logo_2" width="50" height="50" class="m-r-15"></Image>
+        <Label [text]="x" class="h2" margin="0"></Label>
+
+      </FlexboxLayout>
+    </ng-template>
+
+  </ListView>
+
+</StackLayout>
