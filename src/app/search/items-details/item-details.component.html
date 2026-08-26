@@ -21,9 +21,9 @@
 
           <StackLayout col="2" row="0" orientation="horizontal" horizontalAlignment="right" margin="3">
                     
-            <Label text="👍" fontSize="18" class="m-r-10"></Label>
-                    
-            <Label text="👎" fontSize="18"></Label>
+            <Label text="✏️" fontSize="18" class="m-r-15" (tap)="onEdit(comment)"></Label>                    
+            
+            <Label text="🗑️" fontSize="18" (tap)="onDelete(comment)"></Label>
                 
           </StackLayout>
         

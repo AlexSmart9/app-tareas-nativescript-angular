@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Dialogs } from '@nativescript/core';
 import { RouterExtensions } from '@nativescript/angular';
+import { Toasty } from '@triniwiz/nativescript-toasty';
 
 
 @Component ({
@@ -34,5 +36,40 @@ export class ItemDetailsComponent implements OnInit {
       pullRefresh.refreshing = false;
     })
   }
+
+  showToast() {
+    const toast = new Toasty({ text: 'Comment edited successfully'});
+    toast.show();
+  }
+
+  onDelete( commentSelected: any) {
+
+    this.comments = this.comments.filter(c => c !== commentSelected);
+
+    Dialogs.alert({
+      title: "Comment Deleted",
+      message: "The comment has been deleted successfully",
+      okButtonText: "OK"
+    });
+  };
+
+  onEdit( commentSelected: any) {
+
+    Dialogs.action({
+      message: 'Select a new category for the comment',
+      cancelButtonText:'Cancel',
+      actions: ['✔️ Checked', '❌ Not Checked']
+    }).then( result => {
+      if (result !== 'Cancel') {
+        
+        commentSelected.date= result
+        
+        this.showToast();
+      };
+    });
+
+  };
+
+
   
 }
