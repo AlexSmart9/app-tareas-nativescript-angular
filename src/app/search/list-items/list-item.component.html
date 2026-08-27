@@ -1,7 +1,8 @@
 <StackLayout>
-  <Label text="Items" clas="h2 p-10 "></Label>
-
-  <ListView [items]="news.search()" (itemTap)="onTapItem($event)">
+  <Label text="Search News" clas="h2 p-10 "></Label>
+  <SearchForm (search)="executeSearch($event)"></SearchForm>
+  <app-edit-item></app-edit-item>
+  <ListView [items]="searchResults" (itemTap)="onTapItem($event)">
 
     <ng-template let-x="item">
       <FlexboxLayout flexDirection="row" justifyContent="center" alignItems="center" class="p-15 border-bottom">
