@@ -10,7 +10,7 @@
         
       <GridLayout columns="auto, *, auto" rows="auto,25" verticalAlignment="top" backgroundColor="lightgray" class="m-b-5">
           
-          <Image src="res://logo_2" rowSpan="2" width="72" height="72" margin="3" verticalAlignment="top"></Image>
+          <Image src="res://logo" rowSpan="2" width="72" height="72" margin="3" verticalAlignment="top"></Image>
           
           <Label [text]="comment.text" textWrap="true" col="1" colSpan="2" minHeight="50" fontSize="20" margin="3"></Label>
                 
@@ -20,6 +20,8 @@
           <Label [text]="comment.date" col="2" row="1" color="#10C2B0" fontSize="14" verticalAlignment="bottom" margin="3"></Label>
 
           <StackLayout col="2" row="0" orientation="horizontal" horizontalAlignment="right" margin="3">
+
+            <Label text="⭐" fontSize="18" class="m-r-15" (doubleTap)="onFavorite($event)"></Label>
                     
             <Label text="✏️" fontSize="18" class="m-r-15" (tap)="onEdit(comment)"></Label>                    
             

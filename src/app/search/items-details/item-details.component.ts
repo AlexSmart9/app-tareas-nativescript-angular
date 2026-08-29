@@ -70,6 +70,24 @@ export class ItemDetailsComponent implements OnInit {
 
   };
 
+  onFavorite( args: any ) {
+    
+    const starIcon = args.object;
+
+    
+    starIcon.animate({
+      rotate: 360,               
+      scale: { x: 1.5, y: 1.5 }, 
+      duration: 500              
+    }).then(() => {
+    
+      starIcon.animate({
+        rotate: 0,
+        scale: { x: 1, y: 1 },
+        duration: 300
+      });
+    });
+  }
 
   
 }
