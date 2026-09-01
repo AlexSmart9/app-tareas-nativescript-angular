@@ -10,39 +10,51 @@ import {NewsService} from '../../domain/news.service';
 
 export class ListItemsComponent implements OnInit {
 
-  searchResults: string[] = [];
+  searchResults: any[] = [];
+  originalNews: any[] = [];
 
   constructor(
     private routerExtensions:RouterExtensions,
-    public news : NewsService,
-  ) 
-    {}
+    public newsService : NewsService,
+  )  {}
     
   ngOnInit(): void {
     // Init your component properties here.
-    this.news.add("News 1");
-    this.news.add("News 2");
-    this.news.add("News 3");
-
-    this.searchResults= [...this.news.search()]
-  }
+    this.newsService.getNews('tecnologia').subscribe({
+      next: (data : any) => {
+        this.searchResults = data;
+        this.originalNews = data;
+        console.log('Data suchesfully loaded from Express!')
+      },
+      error: (err : any) => {
+  
+        console.log('Api Error', err)
+  
+      }
+    });
+  };
 
   onTapItem(item: any): void {
+  
     console.dir(item)
     this.routerExtensions.navigate(['search/details'])
-  }
+  
+  };
 
   executeSearch(text: string) {
-
-    const originalResults = this.news.search();
-
     if(!text) {
-      this.searchResults = [...originalResults]
+  
+      this.searchResults = [...this.originalNews];
       return;
-    }
+  
+    };
 
-    this.searchResults= originalResults.filter((t: string) => t.toLocaleLowerCase().includes(text.toLocaleLowerCase())
-    )
-  }
+    
+    this.searchResults = this.originalNews.filter((item: any) => 
+  
+      item.title.toLowerCase().includes(text.toLowerCase())
+    
+  );
+  };
 
-}
+};

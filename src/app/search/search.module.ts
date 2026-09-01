@@ -1,6 +1,7 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core'
 import { NativeScriptCommonModule, NativeScriptFormsModule } from '@nativescript/angular'
 import { MinLenDirective } from './minlen.validator'
+import { NativeScriptHttpClientModule } from '@nativescript/angular';
 
 import { SearchRoutingModule } from './search-routing.module'
 import { SearchComponent } from './search.component'
@@ -12,7 +13,7 @@ import { EditItemComponent} from './list-items/edit-item.component'
 
 
 @NgModule({
-  imports: [NativeScriptCommonModule, SearchRoutingModule, NativeScriptFormsModule],
+  imports: [NativeScriptCommonModule, SearchRoutingModule, NativeScriptFormsModule, NativeScriptHttpClientModule],
   declarations: [
     SearchComponent,
     ListItemsComponent,
