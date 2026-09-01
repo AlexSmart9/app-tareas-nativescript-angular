@@ -1,13 +1,18 @@
-<ActionBar class="action-bar">
-  <NavigationButton visibility="hidden"></NavigationButton>
-  <GridLayout columns="50, *">
-    <Label class="action-bar-title" text="Featured" colSpan="2"></Label>
+<ActionBar title="Mis Favoritos"></ActionBar>
 
-    <Label class="fas" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
-  </GridLayout>
-</ActionBar>
-
-<GridLayout class="page__content">
-  <Label class="page__content-icon fas" text="&#xf005;"></Label>
-  <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+<StackLayout>
+    
+    <Label *ngIf="myFavorites.length === 0" text="Aún no tienes favoritos." class="p-20 text-center" color="gray"></Label>
+    
+    <ListView color="black" [items]="myFavorites" height="100%">
+        <ng-template let-item="item">
+            <GridLayout columns="*, auto" class="p-10 m-b-5" backgroundColor="#f9f9f9">
+                
+                <Label [text]="item.title" col="0" textWrap="true" fontSize="16"></Label>
+                
+                <Button text="Leer ahora" col="1" (tap)="onRead(item)" backgroundColor="#007bff" color="white" class="p-5" borderRadius="5"></Button>
+                
+            </GridLayout>
+        </ng-template>
+    </ListView>
+</StackLayout>

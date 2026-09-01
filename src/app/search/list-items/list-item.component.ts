@@ -57,4 +57,9 @@ export class ListItemsComponent implements OnInit {
   );
   };
 
+  onMarkFavorite(item: any) {
+    this.newsService.saveFavorite(item);
+    console.log("¡New marked as favorite!", item.title, "!");
+  }
+
 };

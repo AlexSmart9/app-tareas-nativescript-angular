@@ -1,13 +1,17 @@
-<ActionBar class="action-bar">
-  <NavigationButton visibility="hidden"></NavigationButton>
-  <GridLayout columns="50, *">
-    <Label class="action-bar-title" text="Settings" colSpan="2"></Label>
+<ActionBar title="Configuración"></ActionBar>
 
-    <Label class="fas" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
-  </GridLayout>
-</ActionBar>
+<StackLayout class="p-20" backgroundColor="#f4f4f4" height="100%">
+    
+    <Label text="Perfil del Usuario" fontSize="24" fontWeight="bold" class="m-b-20"></Label>
 
-<GridLayout class="page__content">
-  <Label class="page__content-icon fas" text="&#xf013;"></Label>
-  <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+    <label [text]="userName" color="black"></label>
+    
+    <Label text="Edita tu nombre de usuario:" fontSize="16" class="m-b-10 text-muted"></Label>
+    
+    <!-- Caja de texto bidireccional -->
+    <TextField [(ngModel)]="userName" hint="Ingresa tu nombre" class="input p-10 m-b-20" backgroundColor="white" color="black" borderRadius="5"></TextField>
+    
+    <!-- Botón para guardar -->
+    <Button text="Guardar Cambios" (tap)="onSave()" backgroundColor="#28a745" color="white" class="p-10" borderRadius="5"></Button>
+    
+</StackLayout>

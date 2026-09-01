@@ -1,13 +1,17 @@
-<ActionBar class="action-bar">
-  <NavigationButton visibility="hidden"></NavigationButton>
-  <GridLayout columns="50, *">
-    <Label class="action-bar-title" text="Home" colSpan="2"></Label>
-
-    <Label class="fas" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
-  </GridLayout>
+<ActionBar title="Inicio - Leer Ahora">
+    <NavigationButton text="Menu" android.systemIcon="ic_menu_more" (tap)="onDrawerButtonTap()"></NavigationButton>
 </ActionBar>
 
-<GridLayout class="page__content">
-  <Label class="page__content-icon fas" text="&#xf015;"></Label>
-  <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+<StackLayout class="p-20" backgroundColor="#f4f4f4" height="100%">
+    
+    <Label text="Noticias Seleccionadas para Leer:" fontSize="22" fontWeight="bold" class="m-b-15" color="black"></Label>
+    
+    <ListView [items]="favorites$ | async" height="85%">
+        <ng-template let-item="item">
+            <GridLayout columns="*" class="p-15 m-b-10" backgroundColor="white" borderRadius="8">
+                <Label [text]="item.title" textWrap="true" fontSize="16" fontWeight="bold" color="black"></Label>
+            </GridLayout>
+        </ng-template>
+    </ListView>
+    
+</StackLayout>

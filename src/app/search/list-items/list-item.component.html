@@ -2,17 +2,16 @@
   <Label text="Search News" clas="h2 p-10 "></Label>
   <SearchForm (search)="executeSearch($event)"></SearchForm>
   <app-edit-item></app-edit-item>
-  <ListView [items]="searchResults" (itemTap)="onTapItem($event)">
-
-    <ng-template let-x="item">
-      <FlexboxLayout flexDirection="row" justifyContent="center" alignItems="center" class="p-15 border-bottom">
-
-        <Image src="res://logo" width="50" height="50" class="m-r-15"></Image>
-        <Label [text]="x.title" class="h2" margin="0" color="white"></Label>
-
-      </FlexboxLayout>
+  <ListView [items]="searchResults" (itemTap)="onTapItem($event)" height="100%">
+    <ng-template let-item="item">
+        <GridLayout columns="*, auto" class="p-10 m-b-5" backgroundColor="black" borderRadius="5">
+            
+            <Label [text]="item.title" col="0" textWrap="true" fontSize="18" (tap)="onTapItem(item)"></Label>
+            
+            <Label text="⭐" col="1" fontSize="24" class="m-l-10" (tap)="onMarkFavorite(item)"></Label>
+            
+        </GridLayout>
     </ng-template>
-
-  </ListView>
+</ListView>
 
 </StackLayout>

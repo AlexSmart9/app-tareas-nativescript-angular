@@ -23,7 +23,7 @@ import { EditItemComponent} from './list-items/edit-item.component'
     EditItemComponent
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [NewsService]
+ 
   
 })
 export class SearchModule {}
