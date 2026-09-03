@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "73794085328",
+    "project_id": "nativescript-f-app",
+    "storage_bucket": "nativescript-f-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:73794085328:android:ef9bf0598f1c3899e459d5",
+        "android_client_info": {
+          "package_name": "org.nativescript.firstapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-T0u_zfsEUxy0qL41hp1k4huBCLvOj5s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
