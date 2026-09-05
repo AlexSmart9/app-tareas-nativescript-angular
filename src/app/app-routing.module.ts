@@ -27,7 +27,11 @@ const routes: Routes = [
   {
     path: 'tasks',
     loadChildren: () => import('~/app/tasks/tasks.module').then((m) => m.TasksModule),
-  }
+  },
+  { 
+    path: 'map',
+     loadChildren: () => import('./map/map.module').then((m) => m.MapModule) 
+  },
 ]
 
 @NgModule({

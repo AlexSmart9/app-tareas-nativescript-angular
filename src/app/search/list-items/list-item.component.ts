@@ -20,7 +20,7 @@ export class ListItemsComponent implements OnInit {
     
   ngOnInit(): void {
     // Init your component properties here.
-    this.newsService.getNews('tecnologia').subscribe({
+    this.newsService.getNews().subscribe({
       next: (data : any) => {
         this.searchResults = data;
         this.originalNews = data;

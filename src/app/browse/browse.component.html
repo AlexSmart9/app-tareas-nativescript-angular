@@ -1,13 +1,16 @@
-<ActionBar class="action-bar">
-  <NavigationButton visibility="hidden"></NavigationButton>
-  <GridLayout columns="50, *">
-    <Label class="action-bar-title" text="Browse" colSpan="2"></Label>
-
-    <Label class="fas" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
-  </GridLayout>
+<ActionBar title="Camara y compartir">
+  <NavigationButton text="Back" android.systemIcon="ic_menu_back"></NavigationButton> 
 </ActionBar>
 
-<GridLayout class="page__content">
-  <Label class="page__content-icon far" text="&#xf1ea;"></Label>
-  <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+<ScrollView>
+
+  <StackLayout class="p-20">
+    <label text="Practica de Camara y Redes Sociales"></label>
+    <Button text="Tomar Fotografia" class="btn btn-primary m-b-20" (tap)="onTakePicture()"></Button>
+    <Image *ngIf="capturedImage" [src]="capturedImage" height="300" stretch="aspectFit" class="m-b-20" borderRadius="10"></Image>
+
+    <Button *ngIf="capturedImageSource" text="Compartir Foto" class="btn btn-secondary" (tap)="onSharePicture()"></Button>
+    
+  </StackLayout>
+
+</ScrollView>

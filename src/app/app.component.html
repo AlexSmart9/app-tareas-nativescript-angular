@@ -64,6 +64,15 @@
           <Label col="0" text="&#xf013;" class="nt-icon fas"></Label>
           <Label col="1" text="Settings" class="p-r-10"></Label>
         </GridLayout>
+        <GridLayout
+          columns="auto, *"
+          class="nt-drawer__list-item"
+          [class.-selected]="isComponentSelected('/map')"
+          (tap)="onNavItemTap('/map')"
+        >
+          <Label col="0" text="&#xf279;" class="nt-icon fas"></Label>
+          <Label col="1" text="Maps" class="p-r-10"></Label>
+        </GridLayout>
       </StackLayout>
     </ScrollView>
   </GridLayout>

@@ -1,0 +1,11 @@
+<ActionBar title="Mapa de Google">
+  <NavigationButton text="Back" android.systemIcon="ic_menu_back"></NavigationButton>
+</ActionBar>
+
+<GridLayout>
+  <MapView 
+    (ready)="onMapReady($any($event))"
+    height="100%" 
+    width="100%">
+  </MapView>
+</GridLayout>

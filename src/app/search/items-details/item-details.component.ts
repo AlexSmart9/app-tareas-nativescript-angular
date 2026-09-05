@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Dialogs } from '@nativescript/core';
+import * as SocialShare from '@nativescript/social-share';
+import { ImageSource, knownFolders, action, Dialogs } from '@nativescript/core';
 import { RouterExtensions } from '@nativescript/angular';
 import { Toasty } from '@triniwiz/nativescript-toasty';
 
@@ -87,6 +88,35 @@ export class ItemDetailsComponent implements OnInit {
         duration: 300
       });
     });
+  }
+
+  onLongPress( comment: any ) {
+
+    action({
+      message: "¿Qué deseas hacer con este elemento?",
+      cancelButtonText: "Cancelar",
+      actions: ["Compartir Texto", "Compartir Imagen del Logo"]
+    }).then((result) => {
+      if (result === "Compartir Texto") {
+        SocialShare.shareText(`Comentario de ${comment.user}: ${comment.text}`);
+      } 
+      else if (result === "Compartir Imagen del Logo") {
+        this.shareLogo();
+      }
+    });
+
+  }
+
+  shareLogo() {
+    try {
+
+      const imageSource = ImageSource.fromResourceSync("logo");
+      if(imageSource) {
+        SocialShare.shareImage(imageSource)
+      }
+    } catch (error) {
+      console.error(' Eror al compartir la imagen', error);
+    }
   }
 
   

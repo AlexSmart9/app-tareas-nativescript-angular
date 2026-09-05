@@ -8,31 +8,31 @@
     
     <ng-template let-comment="item">
         
-      <GridLayout columns="auto, *, auto" rows="auto,25" verticalAlignment="top" backgroundColor="lightgray" class="m-b-5">
+      <GridLayout columns="auto, *, auto" rows="auto, auto" backgroundColor="lightgray" class="m-b-5" borderRadius="5" padding="10" (longPress)="onLongPress(comment)">
           
-          <Image src="res://logo" rowSpan="2" width="72" height="72" margin="3" verticalAlignment="top"></Image>
-          
-          <Label [text]="comment.text" textWrap="true" col="1" colSpan="2" minHeight="50" fontSize="20" margin="3"></Label>
-                
-          <Label [text]="'Usuario: ' + comment.user" col="1" row="1" fontSize="14" horizontalAlignment="left" verticalAlignment="bottom" margin="3"></Label>
-                
         
-          <Label [text]="comment.date" col="2" row="1" color="#10C2B0" fontSize="14" verticalAlignment="bottom" margin="3"></Label>
-
-          <StackLayout col="2" row="0" orientation="horizontal" horizontalAlignment="right" margin="3">
-
-            <Label text="⭐" fontSize="18" class="m-r-15" (doubleTap)="onFavorite($event)"></Label>
-                    
-            <Label text="✏️" fontSize="18" class="m-r-15" (tap)="onEdit(comment)"></Label>                    
-            
-            <Label text="🗑️" fontSize="18" (tap)="onDelete(comment)"></Label>
+          <Image src="res://logo" rowSpan="2" width="60" height="60" margin="3" verticalAlignment="top"></Image>
+          
+          
+          <Label [text]="comment.text" textWrap="true" col="1" colspan="2" fontSize="16" color="black" margin="3"></Label>
                 
+          
+          <Label [text]="'Usuario: ' + comment.user" col="1" row="1" fontSize="13" color="black" horizontalAlignment="left" verticalAlignment="bottom" margin="3"></Label>
+                
+          
+          <Label [text]="comment.date" col="2" row="1" color="#10C2B0" fontSize="12" horizontalAlignment="right" verticalAlignment="bottom" margin="3"></Label>
+
+          
+          <StackLayout col="2" row="0" orientation="horizontal" horizontalAlignment="right" margin="3">
+            <Label text="⭐" fontSize="16" class="m-r-10" (doubleTap)="onFavorite($event)"></Label>
+            <Label text="✏️" fontSize="16" class="m-r-10" (tap)="onEdit(comment)"></Label>
+            <Label text="🗑️" fontSize="16" (tap)="onDelete(comment)"></Label>
           </StackLayout>
         
-        </GridLayout>
+      </GridLayout>
     
-      </ng-template>
+    </ng-template>
   
-    </ListView>  
+  </ListView>  
 
-  </PullToRefresh>
+</PullToRefresh>
